@@ -1,0 +1,26 @@
+<h3><%= @restaurant.name %></h3>
+  <p><%= @restaurant.rating %></p>
+  <p><%= @restaurant.genre %></p>
+  <p><%= @restaurant.description %></p>
+
+  
+<% if current_user %>
+  <h4>Make a reservation at <%= @restaurant.name %></h4>
+  <%= form_for [@restaurant, @reservation] do |f| %>
+    
+    <div class="field">
+      <%= f.label :booking_date %>
+      <%= f.date_select :booking_date %>
+    </div><br />
+    <div class="field">
+      <%= f.label :booking_time %>
+      <%= f.select :booking_time, [["1:00", 1],["2:00", 2],["3:00", 3],["4:00", 4],["5:00", 5]] %>
+    </div><br />
+    <div class="field">
+      <%= f.label :guest_num %>
+      <%= f.number_field :guests_num, :value => 1, :min => 1 %>
+    </div><br />
+    <%= f.submit %>
+  <% end %>
+<% end %>
+

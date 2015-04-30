@@ -1,0 +1,23 @@
+<h2>All Restaurants</h2>
+
+<% @restaurants.each do |restaurant| %>
+<h2><%= link_to restaurant.name, restaurant %></h2>
+  <p>
+
+      Category: <%= restaurant.genre %> <br />
+      Rating: <div data-rating="5" class="ui star rating">
+
+      <i class="icon active"></i>
+      <i class="icon active"></i>
+      <i class="icon active"></i>
+      <i class="icon active"></i>
+
+    </div>
+
+  </p>
+
+
+
+
+<% end %>
+
